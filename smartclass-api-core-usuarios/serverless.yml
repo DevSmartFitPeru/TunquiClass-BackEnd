@@ -1,0 +1,29 @@
+service: smartclass-api-core-usuarios
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region : us-east-2
+
+functions:
+  registrarUsuario:
+    handler: src/registrar.handler
+    events:
+      - httpApi:
+          path: /registrar
+          method: post
+
+  login:
+    handler: src/login.handler
+    events:
+      - httpApi:
+          path: /login
+          method: post
+
+  validar-token:
+    handler: src/validar-token.handler
+    events:
+      - httpApi:
+          path: /validar-token
+          method: post

@@ -1,0 +1,20 @@
+service: TunquiClass-api-maestro-app-rol
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region : us-east-2
+functions:
+  registrar-app:
+    handler: src/aplicaciones/registrar.handler
+    events:
+      - httpApi:
+          path: /registrar-app
+          method: post
+    environment:
+      PGDATABASE: 'postgres'
+      PGHOST: 'db-2.ckioqeuxcht7.us-east-2.rds.amazonaws.com'
+      PGPASSWORD: 'Pagamento2023*'
+      PGPORT: '5432'
+      PGUSER: 'smartfit'

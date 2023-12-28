@@ -1,0 +1,27 @@
+service: TunquiClass-api-core-accesos
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region : us-east-2
+
+functions:
+  registrar-usuario:
+    handler: src/registrar_usuario.handler
+    events:
+      - httpApi:
+          path: /registrar_usuario
+          method: post
+    environment: 
+      COGNITOCLIENTID : '6s66343ojf990h3f0stkrosn7l'
+
+  login:
+    handler: src/login.handler
+    events:
+      - httpApi:
+          path: /login
+          method: post
+    environment: 
+      COGNITOCLIENTID : '6s66343ojf990h3f0stkrosn7l'
+      USERPOOLID : 'us-east-2_FJ60RJ2Ft'
