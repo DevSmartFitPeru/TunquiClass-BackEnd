@@ -20,3 +20,57 @@ functions:
       PGPASSWORD: 'Pagamento2023*'
       PGPORT: '5432'
       PGUSER: 'smartfit'
+  
+  eliminar:
+    handler: src/eliminar.handler
+    events:
+      - httpApi:
+          path: /eliminar/{int_id}
+          method: delete
+    environment:
+      PGDATABASE: 'postgres'
+      PGHOST: 'db-2.ckioqeuxcht7.us-east-2.rds.amazonaws.com'
+      PGPASSWORD: 'Pagamento2023*'
+      PGPORT: '5432'
+      PGUSER: 'smartfit'
+  
+  editar:
+    handler: src/editar.handler
+    events:
+      - httpApi:
+          path: /editar
+          method: patch
+          
+    environment:
+      PGDATABASE: 'postgres'
+      PGHOST: 'db-2.ckioqeuxcht7.us-east-2.rds.amazonaws.com'
+      PGPASSWORD: 'Pagamento2023*'
+      PGPORT: '5432'
+      PGUSER: 'smartfit'
+
+
+  registrar_campo:
+    handler: src/registrar_campo.handler
+    events:
+      - httpApi:
+          path: /registrar_campo
+          method: post
+    environment:
+      PGDATABASE: 'postgres'
+      PGHOST: 'db-2.ckioqeuxcht7.us-east-2.rds.amazonaws.com'
+      PGPASSWORD: 'Pagamento2023*'
+      PGPORT: '5432'
+      PGUSER: 'smartfit'
+
+  eliminar_campo:
+    handler: src/eliminar_campo.handler
+    events:
+      - httpApi:
+          path: /eliminar_campo/{arr_ids}
+          method: delete
+    environment:
+      PGDATABASE: 'postgres'
+      PGHOST: 'db-2.ckioqeuxcht7.us-east-2.rds.amazonaws.com'
+      PGPASSWORD: 'Pagamento2023*'
+      PGPORT: '5432'
+      PGUSER: 'smartfit'
